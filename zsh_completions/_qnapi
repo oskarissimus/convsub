@@ -1,0 +1,16 @@
+#compdef qnapi
+
+# to reload this completrion function run 
+# unfunction _qnapi; autoload -U compinit; compinit
+
+# to make it work put below line in .zshrc
+# fpath=(/home/oskar/scripts/zsh_completions $fpath)
+
+_arguments '1:filename:->files'
+case "$state" in
+    files)
+        local -a movie_files
+        movie_files=( *.{mp4,mkv} )
+        _multi_parts / movie_files
+        ;;
+esac

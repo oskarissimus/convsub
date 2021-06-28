@@ -1,0 +1,16 @@
+#compdef convsub
+
+# to reload this completrion function run 
+# unfunction _convsub; autoload -U compinit; compinit
+
+# to make it work put below line in .zshrc
+# fpath=(/home/oskar/scripts/zsh_completions $fpath)
+
+_arguments '1:filename:->files'
+case "$state" in
+    files)
+        local -a subtitles_files
+        subtitles_files=( *.{txt,srt} )
+        _multi_parts / subtitles_files
+        ;;
+esac
